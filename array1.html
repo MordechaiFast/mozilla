@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Invoice</title>
+    </head>
+    <body>
+      <div class="output" style="min-height: 150px;">
+        <h3>Invintory</h3>
+        <ul><li>This is the product list</li></ul>
+        <p>The total goes here</p>
+      </div>
+      <script>
+        const list = document.querySelector('.output ul');
+        const totalBox = document.querySelector('.output p');
+        let total = 0;
+        list.textContent = "";
+        //totalBox.textContent = "";
+        // number 1
+        const products = [
+            'Underpants:6.99',
+            'Socks:5.99',
+            'T-shirt:14.99',
+            'Trousers:31.99',
+            'Shoes:23.99',
+        ];
+        
+        // number 2
+        for (name_price of products) {
+          // number 3
+          let [name, price] = name_price.split(":");
+          price = Number(price);
+          // number 4
+          total += price;
+        
+          // number 5
+          const itemText = `${name} - $${price}`;
+        
+          const listItem = document.createElement('li');
+          listItem.textContent = itemText;
+          list.appendChild(listItem);
+        
+        // number 6
+        }
+        
+        totalBox.textContent = 'Total: $' + total.toFixed(2);
+      </script>
+    </body>
+</html>
